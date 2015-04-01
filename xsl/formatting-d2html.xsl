@@ -32,12 +32,19 @@
 
   <xsl:template match="*[contains(@class, ' d4p-formatting-d/b-i ')]" priority="10"
     mode="#default getTitle">
-    <b><span class="sc {@outputclass}"><xsl:apply-templates/></span></b>
+    <xsl:choose>
+      <xsl:when test="@outputclass">
+        <b><i><span class="{@outputclass}"><xsl:apply-templates/></span></i></b>
+      </xsl:when>
+      <xsl:otherwise>
+        <b><i><xsl:apply-templates/></i></b>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template match="*[contains(@class, ' d4p-formatting-d/b-sc ')]" priority="10"
     mode="#default getTitle">
-    <b><i><xsl:apply-templates/></i></b>
+    <b><span class="sc {@outputclass}"><xsl:apply-templates/></span></b>
   </xsl:template>
 
   <xsl:template match="*[contains(@class, ' d4p-formatting-d/line-through ')]" priority="10"
