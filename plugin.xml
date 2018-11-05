@@ -14,5 +14,7 @@
   
   <feature extension="dita.xsl.xhtml"
       value="xsl/formatting-d2html.xsl" type="file"/>
-      
+  <feature extension="dita.xsl.html5"
+    value="xsl/formatting-d2html.xsl" type="file"/>
+  
 </plugin>
